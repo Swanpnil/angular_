@@ -1,0 +1,21 @@
+<hr style="height: 2px;"><hr>
+<br>
+<br>
+<h1>Assignment 2</h1>
+<label>{{name}}</label>
+<p>server with id is {{serverId}} is {{getserverStatus()}}</p>
+
+<app-ngswitch></app-ngswitch>
+
+<div>{{servercreationStatus}}</div>
+
+
+<h2>two way data binding</h2>
+<div>
+    <h6>Enter user name:</h6>
+    <input type ="text" [(ngModel)]="serverName">
+</div>
+<div>User Name is: {{serverName}}</div>
+<button [disabled] = "!allownewServer" (click)="oncreateServer()">reset</button>
+<button type="button" class="btn btn-primary">Primary</button>
+<app-demodirectives></app-demodirectives>
