@@ -7,7 +7,10 @@ import { servercomponent } from './server/server.component';
 import { ServersComponent } from './servers/servers.component';
 import { FormsModule } from '@angular/forms';
 import { DemodirectivesComponent } from './demodirectives/demodirectives.component';
-import { NgSwitch } from '@angular/common';
+import { AttributeComponent } from './attribute/attribute.component';
+import { DemoComponent } from './demo/demo.component';
+import { TableComponent } from './table/table.component';
+
 
 
 @NgModule({
@@ -16,7 +19,10 @@ import { NgSwitch } from '@angular/common';
     servercomponent,
     ServersComponent,
     DemodirectivesComponent,
-    NgSwitch
+    AttributeComponent,
+    DemoComponent,
+    TableComponent,
+   
     ],
   imports: [
     BrowserModule,
