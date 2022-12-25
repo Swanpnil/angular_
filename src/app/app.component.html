@@ -1,18 +1,113 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <!-- <app-ngswitch></app-ngswitch> -->
-<div style="text-align:center;">
-  <!-- <h1>
-    Welcome to {{ title }}!
-  </h1> -->
-  <app-server></app-server>
-  <!-- <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
- </div> -->
- <app-demodirectives></app-demodirectives>
- <app-attribute></app-attribute>
+<!-- <div style="text-align:center;"> -->
+  <div style="text-align: center; background-color: rgb(111, 110, 110); color: aqua;">
+    <h1>
+      Welcome to<strong style="color: blueviolet;"> {{ title }}</strong>
+    </h1> 
+    <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+ 
+    <app-comp1></app-comp1>
+    <app-comp2></app-comp2>
+    <app-comp3></app-comp3>
+    <app-comp4></app-comp4>
+    <br>
+  </div>
+  <!-- <app-server></app-server> -->
+ 
+ <!-- <app-demodirectives></app-demodirectives>
+ <app-attribute></app-attribute> -->
 
 
-<app-table></app-table>
-<div *ngFor="let e for employeeRecords">
-  <app-demo [employee]="e.eName"></app-demo>
+<!-- <app-table></app-table> -->
+<!-- <div *ngFor="let e for employeeRecords">
+  <app-demo [employee]="e.eName">
+    
+  </app-demo>
+</div> -->
+
+<!-- <ul *ngFor="let f of foods">
+  <li>Sr No: 1</li>
+  <li>Name: Swapnil</li>
+  <li>Course: BCA</li>
+  <li>Paid Fees: 20000</li>
+</ul>
+
+<div>
+  <app-demo (foodevent)="getDataFromChild($event)">
+
+  </app-demo>
+  <select (change)="uid = sid.value" #sid>
+  <option selected disabled>No value selected</option>
+    
+    <option [value]="id" *ngFor="let id of [1,2,3,4]">{{id}}</option>
+  </select>
+
+  <div class="row" style="text-align:center;">
+    <div class="col-md-12">
+      <input type="text" placeholder="enter value" (blur)="handleData($event)">
+      <p>Product Name: <input type="text" placeholder="Enter product name" [(ngModel)]="name">
+      </p>
+      <p>Product Price: <input type="text" placeholder="Enter product price" [(ngModel)]="price">
+      </p>
+      <button class="btn btn-primary" (click)="updateProduct()">Update product</button>
+     
 </div>
+</div> -->
+
+<!-- <app-dirassign></app-dirassign>
+ -->
+
+
+<!-- <h1 #child>This is child content  -->
+  <!-- 
+    <h1 #child>This is child content coming from parent component</h1> 
+  </app-hooks> -->
+<!-- <app-hooks [userid]="uid" [parentData]="data" [product]="product"></app-hooks> -->
+<!-- <div style="margin:28px; text-align: center;">
+  <div class="col-md-12">
+<p>Name of the player:&nbsp;&nbsp;&nbsp;<input type="text" placeholder="enter the Name" (blur)="removeData($event)" [(ngModel)]="rname"></p>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<button class="btn btn-primary">Update</button>
+</div>
+<app-remove-data [rproduct]="product"></app-remove-data> -->
+
+
+
+<!-- <app-hooks [userid]="uid" [parentData]="data" [product]="product"></app-hooks> -->
+<!-- <div *ngFor="let rem of remove; let i of index">
+  <div>{{i}}</div>
+  <div class="content" (click)="remove">{{rem}}</div>
+  <button>Remove</button>
+</div>
+</div> -->
+<!-- <app-student-form></app-student-form> -->
+<!-- <app-simpleform></app-simpleform> -->
+<!-- <h1>Service</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">name</th>
+      <th scope="col">username</th>
+      <th scope="col">email</th>
+      <th scope="col">address</th>
+    </tr>
+  </thead>
+  <tbody> -->
+    <!-- <tr>
+      <th scope="row">{{_demoservice.data.id}}</th>
+      <th scope="row">{{_demoservice.data.name}}</th>
+      <th scope="row">{{_demoservice.data.username}}</th>
+      <th scope="row">{{_demoservice.data.email}}</th>
+      <th scope="row">{{_demoservice.data.address}}</th>
+    </tr> -->
+  <!-- </tbody>
+</table> -->
+
+
+
+<!-- <app-reactiveform></app-reactiveform>
+<app-servicecomp1></app-servicecomp1>
+<app-servicecomp2></app-servicecomp2> -->
 <router-outlet></router-outlet>
