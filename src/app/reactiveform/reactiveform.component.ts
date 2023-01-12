@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Observable } from 'rxjs';
-
+import {  from, interval, Observable } from 'rxjs';
+import { firaBasePost } from '../model/firebasePost';
+import { FirebaseService } from '../service/firebase.service';
+import { filter, map, take, takeLast, toArray } from 'rxjs/operators'
 @Component({
   selector: 'app-reactiveform',
   templateUrl: './reactiveform.component.html',
@@ -13,7 +15,7 @@ export class ReactiveformComponent implements OnInit {
   genders= [
     {
       id:"1",
-      value:"Male"
+      value:"Male",
     },
     {
       id:"2",
@@ -21,11 +23,27 @@ export class ReactiveformComponent implements OnInit {
     }
   ]
   myReactiveForm: FormGroup;
-  constructor(private _fb: FormBuilder) {
+  firebasePost: firaBasePost;
+  constructor(private _fb: FormBuilder,private _firebaseService: FirebaseService) {
     this.createFor();
    }
 
   ngOnInit() {
+
+    // const data = from(this._firebaseService.users);
+
+    // data.pipe(
+    //   map(x => x.name + 'data')
+    // ).subscribe(res =>{
+    //   console.log('res', res );
+      
+    // })
+
+    // this._firebaseService.getPostDataFirebase().subscribe(res =>{
+    //   console.log('getpostdata firebase', res);
+
+      
+    // })
     // setTimeout(() => {
     //   this.myReactiveForm.setValue({
         
@@ -41,7 +59,40 @@ export class ReactiveformComponent implements OnInit {
     //     'userDetails' : {'username': 'Codemind1122','email': 'test@gmail.com'}
     //   }
     //   )}, 3500);
-  }
+    
+    //take operator
+ 
+    const sourse = interval(1000);
+    sourse.pipe(
+      take(5)
+      )
+    .subscribe(res =>{
+      console.log('interval time', res);
+      
+    })
+
+    //take last
+
+let randomnames = ['HTML', 'CSS', 'Javascript', 'Typescript', 'Angular', 'Ajile Jira'];
+const source = from(randomnames);
+source.pipe(
+  takeLast(2)).subscribe(res => {
+console.log('take last operator', res);
+
+  })
+
+  //filter
+
+  const data = from(this._firebaseService.users);
+  data.pipe(
+    filter(u => u.gender =='Male'),
+    toArray()
+    ).subscribe(res => {
+      console.log('filter operator', res);
+      
+    })
+
+      }
   createFor(){
     // this.myReactiveForm = new FormGroup({
 // 'userDetails': new FormGroup({
@@ -66,9 +117,22 @@ export class ReactiveformComponent implements OnInit {
   }
   onSubmit(): void{
     this.submitted = true;
-    console.log(this.myReactiveForm);
+    // console.log(this.myReactiveForm);
+    // console.log(this.myReactiveForm['controls'].username.value);
+    
+    this.firebasePost = new firaBasePost();
+    this.firebasePost.username = this.myReactiveForm['controls'].username.value;
+    this.firebasePost.email = this.myReactiveForm['controls'].email.value;
+    this.firebasePost.gender = this.myReactiveForm['controls'].gender.value;
+    this.firebasePost.skill = this.myReactiveForm['controls'].skills.value;
+    console.log('firabase post class', this.firebasePost);
+    this._firebaseService.createPostDataReactiveForm(this.firebasePost).subscribe(res =>{
+      console.log('post from reactive form', res);
+      
+    })
     
   }
+
   onAddSkills(){
     (<FormArray>this.myReactiveForm.get('skills')).push(new FormControl(null, Validators.required));
   }
@@ -90,5 +154,7 @@ export class ReactiveformComponent implements OnInit {
   //       }, 3000);})
   //        return myResponse;
   //       }
+
+
 }
 

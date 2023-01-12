@@ -1,0 +1,32 @@
+<div class="row justify-content-centre">
+    <div class="col-md-8">
+    <input type="text" class="form-control form-inline" placeholder="Add Product" #add>
+    <button (click)="addProduct(add)">Add Product</button>
+    </div>
+</div>
+<div class="row-justify-content-center">
+    <div class="cal-md-8 form-inline mb-2">
+        <label for="productid">Search by Product</label>
+        <input type="text" class="form-control" id="productid" placeholder="Enter the product" [(ngModel)]="namesearch">
+    </div>
+    <div class="cal-md-8">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="cal">sno</th>
+                    <th scope="cal">Name</th>
+                    <th scope="cal">price</th>
+                    <th scope="cal">availability</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of productArr | filter: namesearch">
+                    <td scope="row">{{product.sno}}</td>
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.availability}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

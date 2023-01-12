@@ -23,6 +23,22 @@ import { Comp1Component } from './comp1/comp1.component';
 import { Comp2Component } from './comp2/comp2.component';
 import { Comp3Component } from './comp3/comp3.component';
 import { Comp4Component } from './comp4/comp4.component';
+import { PipedemoComponent } from './service/pipedemo/pipedemo.component';
+import { CountPipe } from './service/count.pipe';
+import { FilterpipeComponent } from './service/filterpipe/filterpipe.component';
+import { FilterPipe } from './service/filter.pipe';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+// import { ProductsComponent } from './products/products.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { DemopostComponent } from './demopost/demopost.component';
+import { PostdetailsComponent } from './postdetails/postdetails.component';
+import { AdduserComponent } from './adduser/adduser.component';
+import { RapidapiComponent } from './rapidapi/rapidapi.component';
+
+
 
 
 @NgModule({
@@ -46,16 +62,35 @@ import { Comp4Component } from './comp4/comp4.component';
     Comp2Component,
     Comp3Component,
     Comp4Component,
-   
+    PipedemoComponent,
+    CountPipe,
+    FilterpipeComponent,
+    FilterPipe,
+    AboutusComponent,
+   ContactusComponent,
+   HomeComponent,
+   LoginComponent,
+   PagenotfoundComponent,
+   DemopostComponent,
+   PostdetailsComponent,
+   AdduserComponent,
+   RapidapiComponent
     ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+  constructor(){
+    console.log("appModule called");
+    
+  }
+ }

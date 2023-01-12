@@ -5,7 +5,7 @@
         <!-- <div formGroupName="userDetails"> -->
         <div class="form-group">
           <div><b>User Name:</b></div>
-          <input type="text" name="" id="" formControlName="username" placeholder="Enter UserName"><br>
+          <input type="text" name=""  formControlName="username" placeholder="Enter UserName"><br>
           <!-- <small class="text-danger"
             *ngIf="myReactiveForm.get('username').error('namesNotAllowed')">{{myReactiveForm.get('username').value}}is
             not allowed</small> -->
@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
           <div><b>E-mail:</b></div>
-          <input type="text" name="" id="" formControlName="email" placeholder="Enter E-mail address"><br>
+          <input type="text" name="" formControlName="email" placeholder="Enter E-mail address"><br>
           <small class="text-danger" *ngIf="!myReactiveForm.get('email').valid && myReactiveForm.get('email').touched">
             <!-- <small class="text-danger"
               *ngIf="myReactiveForm.get('email').errors['emailNotAllowed']">{{myReactiveForm.get('email').value}}
@@ -57,7 +57,7 @@
       <p>User Email: <strong>{{myReactiveForm.get('email').value}}</strong></p>
       <p>selected course: <strong>{{myReactiveForm.get('course').value}}</strong></p>
       <p>Gender: <strong>{{myReactiveForm.get('gender').value}}</strong></p>
-      <p>Skills: <strong>{{myReactiveForm.get('skill').value}}</strong></p>
+      <p>Skills: <strong>{{myReactiveForm.get('skills').value}}</strong></p>
     </div>
 </div>
 </div>
